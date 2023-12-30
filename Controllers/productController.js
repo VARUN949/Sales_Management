@@ -32,9 +32,4 @@ async function getProductID(req, res) {
     return res.status(200).json(product)
 }
 
-async function updateProductStatus(req, res) {
-    id = req.params.id
-    const product = await Product.findByIdAndUpdate(id, req.body, { new: true })
-    return res.status(200).json({ message: "updated successfully" })
-}
-module.exports = { handleAddProuct, handleGetAllProduct, getProductID, handleDeletProduct, updateProductStatus }
+module.exports = { handleAddProuct, handleGetAllProduct, getProductID, handleDeletProduct }

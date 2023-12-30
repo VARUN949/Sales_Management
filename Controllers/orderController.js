@@ -41,4 +41,10 @@ async function getAllOrderByPruductID(req, res) {
     return res.status(200).json(orders)
 }
 
-module.exports = { createNewOrder, getAllOrder, getAllOrderByCustomerID, getAllOrderBySalesEmployeeID, getAllOrderByPruductID }
+async function updateOrderStatus(req, res) {
+    id = req.params.id
+    const orders = await Orders.findByIdAndUpdate(id, req.body, { new: true })
+    return res.status(200).json({ message: "updated successfully" })
+}
+
+module.exports = { createNewOrder, getAllOrder, getAllOrderByCustomerID, getAllOrderBySalesEmployeeID, getAllOrderByPruductID, updateOrderStatus }

@@ -1,5 +1,5 @@
 const express = require("express")
-const { handleAddProuct, getProductID, handleGetAllProduct, handleDeletProduct, updateProductStatus } = require("../Controllers/productController")
+const { handleAddProuct, getProductID, handleGetAllProduct, handleDeletProduct } = require("../Controllers/productController")
 
 
 
@@ -9,7 +9,6 @@ router.post("/", handleAddProuct)
 router.post("/id", getProductID)
 router.get("/", handleGetAllProduct)
 router.delete("/:productID", handleDeletProduct)
-router.put("/:id", updateProductStatus)
 
 
 module.exports = router 

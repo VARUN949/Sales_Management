@@ -23,4 +23,14 @@ async function handleGetAllCustomers(req, res) {
     return res.status(200).json(allProducts)
 }
 
-module.exports = { handleAddCustomer, handleGetAllCustomers }
+async function handleGetAllCustomers(req, res) {
+    const allProducts = await Customer.find();
+    return res.status(200).json(allProducts)
+}
+
+async function getCustomersByID(req, res) {
+    const customer = await Customer.find({ _id: req.body.customerID })
+    if (customer.length === 0) return res.status(400).json({ message: "customer not found" })
+    return res.status(200).json(customer)
+}
+module.exports = { handleAddCustomer, handleGetAllCustomers, getCustomersByID }

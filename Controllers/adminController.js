@@ -21,4 +21,10 @@ async function handleGetAllEdmins(req, res) {
     return res.status(200).json(allEdmins)
 }
 
-module.exports = { handleAddEdmin, handleGetAllEdmins }
+async function getAdminByID(req, res) {
+    const edmin = await Edmin.find({ _id: req.body.adminID })
+    if (edmin.length === 0) return res.status(400).json({ message: "Edmin not found" })
+    return res.status(200).json(edmin)
+}
+
+module.exports = { handleAddEdmin, handleGetAllEdmins, getAdminByID }

@@ -26,4 +26,11 @@ async function handleDeletProduct(req, res) {
     return res.status(200).json({ message: "deleted successfully" })
 }
 
-module.exports = { handleAddProuct, handleGetAllProduct, handleDeletProduct }
+async function getProductID(req, res) {
+    const product = await Product.find({ _id: req.body.productID })
+    if (product.length === 0) return res.status(400).json({ message: "Product not found" })
+    return res.status(200).json(product)
+}
+
+
+module.exports = { handleAddProuct, handleGetAllProduct, getProductID, handleDeletProduct }

@@ -21,4 +21,10 @@ async function handleGetAllSalesEmployees(req, res) {
     return res.status(200).json(allSalesEmployees)
 }
 
-module.exports = { handleAddSalesEmployees, handleGetAllSalesEmployees }
+async function getSalesEmployeeByID(req, res) {
+    const salesEmployees = await SalesEmployees.find({ _id: req.body.SalesEmployeesID })
+    if (salesEmployees.length === 0) return res.status(400).json({ message: "SalesEmployees not found" })
+    return res.status(200).json(salesEmployees)
+}
+
+module.exports = { handleAddSalesEmployees, handleGetAllSalesEmployees, getSalesEmployeeByID }

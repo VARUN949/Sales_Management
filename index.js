@@ -1,4 +1,5 @@
 const express = require("express")
+const cors = require('cors');
 const { connectToMongoDB } = require("./connectToMongoDB")
 const productRoter = require("./Routes/ProductRoute")
 const customeRouter = require("./Routes/customerRoute")
@@ -13,6 +14,7 @@ const Mongo_URL_Product = 'mongodb+srv://smilly:YRuE0Gw0PtSQtMl7@cluster0.qedsva
 connectToMongoDB(Mongo_URL_Product).then(() => { console.log("Mongodb connected") })
 
 const app = express()
+app.use(cors());
 
 
 app.use(express.json());

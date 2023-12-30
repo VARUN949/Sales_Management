@@ -14,8 +14,7 @@ const OrderSchema = mongoose.Schema({
         require: true
     },
     approvalFromSaleEmployee: {
-        type: Boolean,
-        require: true
+        type: Boolean
     },
     Qunity: {
         type: Number,

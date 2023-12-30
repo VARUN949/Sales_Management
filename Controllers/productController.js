@@ -34,7 +34,7 @@ async function getProductID(req, res) {
 
 async function updateProductStatus(req, res) {
     id = req.params.id
-    const product = await Product.findByIdAndUpdate(id, body, { new: true })
+    const product = await Product.findByIdAndUpdate(id, req.body, { new: true })
     return res.status(200).json({ message: "updated successfully" })
 }
 module.exports = { handleAddProuct, handleGetAllProduct, getProductID, handleDeletProduct, updateProductStatus }

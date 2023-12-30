@@ -24,23 +24,20 @@ async function getAllOrder(req, res) {
 }
 
 async function getAllOrderByCustomerID(req, res) {
-    const orders = await Orders.find({ customerID: req.params.customerID })
-    if (orders.length == 0) return res.status(400).json({ message: "orders not found" })
-    console.log(orders);
+    const orders = await Orders.find({ customerID: req.body.customerID })
+    if (orders.length === 0) return res.status(400).json({ message: "orders not found" })
     return res.status(200).json(orders)
 }
 
 async function getAllOrderBySalesEmployeeID(req, res) {
-    const orders = await Orders.find({ salesEmployeeID: req.params.salesEmployeeID })
-    if (orders.length == 0) return res.status(400).json({ message: "orders not found" })
-    console.log(orders);
+    const orders = await Orders.find({ salesEmployeeID: req.body.salesEmployeeID })
+    if (orders.length === 0) return res.status(400).json({ message: "orders not found" })
     return res.status(200).json(orders)
 }
 
 async function getAllOrderByPruductID(req, res) {
-    const orders = await Orders.find({ PruductID: req.params.PruductID })
-    if (orders.length == 0) return res.status(400).json({ message: "orders not found" })
-    console.log(orders);
+    const orders = await Orders.find({ PruductID: req.body.PruductID })
+    if (orders.length === 0) return res.status(400).json({ message: "orders not found" })
     return res.status(200).json(orders)
 }
 

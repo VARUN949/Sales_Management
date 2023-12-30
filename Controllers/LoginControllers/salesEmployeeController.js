@@ -9,7 +9,7 @@ async function handleCheckSalesEmployee(req, res) {
 
     if (user === null) return res.status(400).json({ error: "user not found" })
     if (user.password === password) {
-        return res.status(200).json({ message: "successfully login" })
+        return res.status(200).json({ message: "successfully login", id: user._id })
     }
     else {
         return res.status(400).json({ message: "wrong password" })

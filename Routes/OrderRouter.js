@@ -4,9 +4,9 @@ const Router = express.Router()
 
 Router.get("/", getAllOrder)
 Router.post("/", createNewOrder)
-Router.get("/customerID/:customerID", getAllOrderByCustomerID)
-Router.get("/salesEmployeeID/:salesEmployeeID", getAllOrderBySalesEmployeeID)
-Router.get("/PruductID/:PruductID", getAllOrderByPruductID)
+Router.post("/customerID/:customerID", getAllOrderByCustomerID)
+Router.post("/salesEmployeeID/", getAllOrderBySalesEmployeeID)
+Router.post("/PruductID/", getAllOrderByPruductID)
 
 
 module.exports = Router

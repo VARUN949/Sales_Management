@@ -7,6 +7,7 @@ const adminRouter = require("./Routes/adminRoute")
 const salesEmployeeRouter = require("./Routes/SalesEmployeeRouter")
 const LoginRouter = require("./Routes/LoginRoute")
 const OrderRouter = require("./Routes/OrderRouter")
+const SignupRoute = require("./Routes/SignupRoute")
 PORT = 8001
 const Mongo_URL_Product = 'mongodb+srv://smilly:YRuE0Gw0PtSQtMl7@cluster0.qedsvam.mongodb.net/Sales_Management?retryWrites=true&w=majority'
 
@@ -18,6 +19,7 @@ app.use(cors());
 
 
 app.use(express.json());
+app.use("/signup", SignupRoute)
 app.use("/product", productRoter)
 app.use("/customer", customeRouter)
 app.use("/admin", adminRouter)

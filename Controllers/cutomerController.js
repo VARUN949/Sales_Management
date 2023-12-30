@@ -3,7 +3,7 @@ const Customer = require("../models/CustomerModel")
 async function handleAddCustomer(req, res) {
 
     const body = req.body;
-    if (!body.name || !body.password || !body.email) return res.status(400).json({ error: "data missing" });
+    if (!body.name || !body.password || !body.email || !body.city) return res.status(400).json({ error: "data missing" });
     const result = await Customer.findOne({ email: body.email });
     if (result !== null) return res.status(400).json({ error: "customer emailid already used" })
 
@@ -11,6 +11,7 @@ async function handleAddCustomer(req, res) {
         name: body.name,
         password: body.password,
         email: body.email,
+        city: body.city,
         role: "customer"
     });
 

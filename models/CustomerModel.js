@@ -18,6 +18,10 @@ const customerSchema = new mongoose.Schema({
     role: {
         type: String,
         required: true
+    },
+    city: {
+        type: String,
+        require: true
     }
 },
     { timestamps: true })

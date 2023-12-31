@@ -35,4 +35,10 @@ async function getCustomersByID(req, res) {
     if (customer.length === 0) return res.status(400).json({ message: "customer not found" })
     return res.status(200).json(customer)
 }
-module.exports = { handleAddCustomer, handleGetAllCustomers, getCustomersByID }
+
+async function getCustomersByCity(req, res) {
+    const customer = await Customer.find({ address: { city: req.body.city } })
+    if (customer.length === 0) return res.status(400).json({ message: "customer not found" })
+    return res.status(200).json(customer)
+}
+module.exports = { handleAddCustomer, handleGetAllCustomers, getCustomersByID, getCustomersByCity }

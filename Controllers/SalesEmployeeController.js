@@ -28,4 +28,11 @@ async function getSalesEmployeeByID(req, res) {
     return res.status(200).json(salesEmployees)
 }
 
-module.exports = { handleAddSalesEmployees, handleGetAllSalesEmployees, getSalesEmployeeByID }
+async function getSalesEmployeeByCity(req, res) {
+    const salesEmployees = await SalesEmployees.find({ city: req.body.city })
+    if (salesEmployees.length === 0) return res.status(400).json({ message: "SalesEmployees not found" })
+    return res.status(200).json(salesEmployees)
+}
+
+
+module.exports = { handleAddSalesEmployees, handleGetAllSalesEmployees, getSalesEmployeeByID, getSalesEmployeeByCity }

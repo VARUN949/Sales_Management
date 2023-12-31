@@ -2,7 +2,7 @@ const Orders = require("../models/OrderModel")
 
 async function createNewOrder(req, res) {
     const body = req.body
-    if (!body.customerID || !body.salesEmployeeID || !body.PruductID || !body.approvalFromSaleEmployee || !body.Qunity) {
+    if (!body.customerID || !body.salesEmployeeID || !body.PruductID || !body.Qunity) {
         return res.status(400).json({ message: "missing data" })
     }
     if (typeof (req.body.approvalFromSaleEmployee) !== "boolean") {

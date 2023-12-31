@@ -19,9 +19,27 @@ const customerSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    city: {
-        type: String,
+    contact: {
+        type: Number,
+        required: true
+    },
+    balance: {
+        type: Number,
         require: true
+    },
+    address: {
+        city: {
+            type: String,
+            required: true
+        },
+        state: {
+            type: String,
+            required: true
+        },
+        pincode: {
+            type: Number,
+            required: true
+        }
     }
 },
     { timestamps: true })

@@ -3,7 +3,7 @@ const Customer = require("../models/CustomerModel")
 async function handleAddCustomer(req, res) {
 
     const body = req.body;
-    if (!body.name || !body.password || !body.email || !body.city) return res.status(400).json({ error: "data missing" });
+    if (!body.name || !body.password || !body.email || !body.address.city || !body.address.state || !body.address.pincode) return res.status(400).json({ error: "data missing" });
     const result = await Customer.findOne({ email: body.email });
     if (result !== null) return res.status(400).json({ error: "customer emailid already used" })
 
@@ -11,21 +11,23 @@ async function handleAddCustomer(req, res) {
         name: body.name,
         password: body.password,
         email: body.email,
-        city: body.city,
-        role: "customer"
-    });
+        role: "customer",
+        contact: body.contact,
+        balance: 0,
+        address: {
+            city: body.address.city,
+            state: body.address.state,
+            pincode: body.address.pincode
+        }
+    })
 
     return res.status(200).json({ "message": "success" });
 }
 
-async function handleGetAllCustomers(req, res) {
-    const allProducts = await Customer.find();
-    return res.status(200).json(allProducts)
-}
 
 async function handleGetAllCustomers(req, res) {
-    const allProducts = await Customer.find();
-    return res.status(200).json(allProducts)
+    const allCustomers = await Customer.find();
+    return res.status(200).json(allCustomers)
 }
 
 async function getCustomersByID(req, res) {

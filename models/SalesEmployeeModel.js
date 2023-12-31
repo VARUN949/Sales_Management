@@ -21,7 +21,11 @@ const SalesEmployeeSchema = mongoose.Schema({
     },
     city: {
         type: String,
-        require: true
+        required: true
+    },
+    contact: {
+        type: Number,
+        required: true
     }
 }, { timestamps: true })
 

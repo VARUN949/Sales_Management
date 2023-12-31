@@ -5,9 +5,6 @@ async function createNewOrder(req, res) {
     if (!body.customerID || !body.salesEmployeeID || !body.PruductID || !body.Qunity) {
         return res.status(400).json({ message: "missing data" })
     }
-    if (typeof (req.body.approvalFromSaleEmployee) !== "boolean") {
-        return res.status(400).json({ message: "wrong data" })
-    }
     await Orders.create({
         customerID: body.customerID,
         salesEmployeeID: body.salesEmployeeID,

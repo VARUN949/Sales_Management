@@ -32,4 +32,6 @@ async function getProductID(req, res) {
     return res.status(200).json(product)
 }
 
+
+
 module.exports = { handleAddProuct, handleGetAllProduct, getProductID, handleDeletProduct }

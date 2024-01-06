@@ -1,0 +1,7 @@
+Product Name        :-aaa
+Product Id          :-bbb
+Customer Id         :-ccc
+SalesEmployee Id    :-jkjk
+Quntity             :-hh
+price               :-km
+total price         :-knkn

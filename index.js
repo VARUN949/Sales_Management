@@ -8,6 +8,8 @@ const salesEmployeeRouter = require("./Routes/SalesEmployeeRouter")
 const LoginRouter = require("./Routes/LoginRoute")
 const OrderRouter = require("./Routes/OrderRouter")
 const SignupRoute = require("./Routes/SignupRoute")
+const BillGenerator = require("./Routes/BillRoute")
+const SendMail = require("./Routes/SendMailRoute")
 PORT = 8001
 const Mongo_URL_Product = 'mongodb+srv://smilly:YRuE0Gw0PtSQtMl7@cluster0.qedsvam.mongodb.net/Sales_Management?retryWrites=true&w=majority'
 
@@ -26,6 +28,10 @@ app.use("/admin", adminRouter)
 app.use("/salesEmployee", salesEmployeeRouter)
 app.use("/login", LoginRouter)
 app.use("/order", OrderRouter)
+app.use("/bill-generator", BillGenerator)
+app.use("/send-mail", SendMail)
+
+
 
 // app.use("/customerLogin",)
 

@@ -1,0 +1,7 @@
+Product Name        :-
+Product Id          :-
+Customer Id         :-
+SalesEmployee Id    :-
+Qunity              :-
+price               :-
+total price         :-

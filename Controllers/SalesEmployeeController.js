@@ -34,5 +34,11 @@ async function getSalesEmployeeByCity(req, res) {
     return res.status(200).json(salesEmployees)
 }
 
+async function deleteSalesEmployee(req, res) {
+    const salesEmployee = await SalesEmployees.findOneAndDelete({ _id: req.body.salesEmployee })
+    if (salesEmployee.length === 0) return res.status(400).json({ message: "salesEmployee not found" })
+    return res.status(200).json({ message: "salesEmployee successfully deleted" })
+}
 
-module.exports = { handleAddSalesEmployees, handleGetAllSalesEmployees, getSalesEmployeeByID, getSalesEmployeeByCity }
+
+module.exports = { handleAddSalesEmployees, handleGetAllSalesEmployees, getSalesEmployeeByID, deleteSalesEmployee, getSalesEmployeeByCity }

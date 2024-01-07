@@ -41,4 +41,10 @@ async function getCustomersByCity(req, res) {
     if (customer.length === 0) return res.status(400).json({ message: "customer not found" })
     return res.status(200).json(customer)
 }
-module.exports = { handleAddCustomer, handleGetAllCustomers, getCustomersByID, getCustomersByCity }
+
+async function deleteCustomer(req, res) {
+    const customer = await Customer.findOneAndDelete({ _id: req.body.customerId })
+    if (customer.length === 0) return res.status(400).json({ message: "customer not found" })
+    return res.status(200).json({ message: "customer successfully deleted" })
+}
+module.exports = { handleAddCustomer, handleGetAllCustomers, getCustomersByID, getCustomersByCity, deleteCustomer }

@@ -44,4 +44,16 @@ async function updateOrderStatus(req, res) {
     return res.status(200).json({ message: "updated successfully" })
 }
 
-module.exports = { createNewOrder, getAllOrder, getAllOrderByCustomerID, getAllOrderBySalesEmployeeID, getAllOrderByPruductID, updateOrderStatus }
+async function updateOrderStatus(req, res) {
+    id = req.params.id
+    const orders = await Orders.findByIdAndUpdate(id, req.body, { new: true })
+    return res.status(200).json({ message: "updated successfully" })
+}
+
+async function deleteOrder(req, res) {
+    const orders = await Orders.findOneAndDelete({ _id: req.body.orderId })
+    if (orders.length === 0) return res.status(400).json({ message: "orders not found" })
+    return res.status(200).json({ message: "order successfully deleted" })
+}
+
+module.exports = { createNewOrder, getAllOrder, getAllOrderByCustomerID, getAllOrderBySalesEmployeeID, getAllOrderByPruductID, updateOrderStatus, deleteOrder }
